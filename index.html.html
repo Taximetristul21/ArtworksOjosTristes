@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Steam Style — Full Black</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+  background: #111;
+  border-right: 2px solid #1a1a1a;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-item {
+  padding: 14px 30px;
+  font-size: 15px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: 0.25s ease;
+}
+
+.sidebar-item:hover {
+  color: #00ffff;
+  border-left: 3px solid #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.sub-menu {
+  display: none;
+  flex-direction: column;
+  margin-left: 40px;
+  gap: 8px;
+}
+
+.sub-item {
+  font-size: 14px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sub-item:hover {
+  color: #00ffff;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+.sidebar-item.active .sub-menu {
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 10px;
+  color: #00ffff;
+}
+
+.card {
+  width: 350px;
+  background: #151515;
+  border: 1px solid #222;
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  transition: 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+}
+
+.card-title {
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.btn {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  background: none;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.bg-text {
+  margin-top: 10px;
+  padding: 10px;
+  background: #0f0f0f;
+  border-left: 3px solid #00ffff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.bg-text a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.bg-text a:hover {
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.video-card {
+  width: 600px;
+  background: #151515;
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+  <div class="sidebar-item steam-profile">
+    Steam Profiles
+    <div class="sub-menu">
+      <div class="sub-item" onclick="loadFullBlack()">Full Black</div>
+      <div class="sub-item" onclick="loadFullWhite()">Full White</div>
+      <div class="sub-item" onclick="loadBlackWhite()">Black/White</div>
+    </div>
+  </div>
+
+  <div class="sidebar-item" onclick="loadFeatured()">Featured</div>
+  <div class="sidebar-item" onclick="loadArtwork()">Artwork</div>
+  <div class="sidebar-item" onclick="loadTutorials()">Tutorials</div>
+
+</div>
+
+<div class="main" id="content">
+  <div class="title">Select a section</div>
+</div>
+
+<script>
+document.querySelector(".steam-profile").addEventListener("click", () => {
+  document.querySelector(".steam-profile").classList.toggle("active");
+});
+
+function loadFullBlack() {
+  document.getElementById("content").innerHTML = `
+    <div class="title">Full Black — Download Packs</div>
+
+    <div class="card">
+      <div class="card-title">Ichigo Pack</div>
+      <a class="btn" href="https://www.dropbox.com/scl/fo/5nuchu59tm3wxhz6btfmg/ALJ-_80IEGyOncq8VWoVx6s?rlkey=5wlls6uo3iiejz1v5ch5q91jx&st=m44tqtgp&dl=1">Download Ichigo</a>
+      <div class="bg-text">
+        <b>Background:</b> Cat (Tonia)<br>
+        <a href="https://store.steampowered.com/points/shop/app/1119980" target="_blank">Steam Link</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Aomine Pack</div>
+      <a class="btn" href="https://www.dropbox.com/scl/fo/ghbg9dzjl72a23zh9dso8/AHgFeIFi1WTsnzi0Gh9cBP4?rlkey=cvhh0fm7ganodyw3cr5bmm8r7&st=5n5w1vhz&dl=1">Download Aomine</a>
+      <div class="bg-text">
+        <b>Background:</b> Black Hole Animated<br>
+        <a href="https://store.steampowered.com/points/shop/app/1263950" target="_blank">Steam Link</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Misa Pack</div>
+      <a class="btn" href="https://www.dropbox.com/scl/fo/i7arifrk1prlzleqfhxjt/AFZtYjrSkKMGCVxImCM915Y?rlkey=y9blf1tba6a30asgxu9rphedp&st=hffu45ke&dl=1">Download Misa</a>
+      <div class="bg-text">
+        <b>Background:</b> Car Animated / Black Hole<br>
+        <a href="https://store.steampowered.com/points/shop/app/1263950" target="_blank">Steam Link</a>
+      </div>
+    </div>
+  `;
+}
+
+function loadTutorials() {
+  document.getElementById("content").innerHTML = `
+    <div class="title">Tutorials</div>
+
+    <div class="video-card">
+      <div class="card-title">Tutorial Video</div>
+
+      <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/w3H0b8S-BWE"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+}
+
+function loadFeatured() {
+  document.getElementById("content").innerHTML = `<div class="title">Featured</div>`;
+}
+
+function loadArtwork() {
+  document.getElementById("content").innerHTML = `<div class="title">Artwork</div>`;
+}
+
+function loadFullWhite() {
+  document.getElementById("content").innerHTML = `<div class="title">Full White (coming soon)</div>`;
+}
+
+function loadBlackWhite() {
+  document.getElementById("content").innerHTML = `<div class="title">Black/White (coming soon)</div>`;
+}
+</script>
+
+</body>
+</html>
